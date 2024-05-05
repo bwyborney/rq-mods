@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RQ Mods Settings</title>
+        <link rel="icon" href="./images/rqm128.png">
+        <link rel="stylesheet" href="./style/options.css">
+    </head>
+    <body>
+        <div class="bulletin">
+            <div>
+                <img src="./images/fullLogo.png">
+            </div>
+            <div>
+                <h1>RQ Mods Settings</h1>
+            </div> 
+        </div>
+        <div class="settings">
+            <div class="settings-column">
+                <h3>Enabled features:</h3>
+                <!--
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="checkmark checked"><b>&#10003;</b></button>  
+                    
+
+
+                </label><br>
+                -->
+
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="checkmark checked"><b>&#10003;</b></button>  
+                    Custom Quick Link 
+                </label><br>
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="checkmark checked"><b>&#10003;</b></button>  
+                    Serial Number Reminders
+
+
+                </label><br>
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="checkmark checked"><b>&#10003;</b></button>  
+                    Quote Reminders
+
+
+                </label><br>
+
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="checkmark checked"><b>&#10003;</b></button>  
+                    Inventory-view Click Targets
+
+
+                </label><br>
+
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="checkmark checked"><b>&#10003;</b></button>  
+                    Ticket-view Click targets
+
+
+                </label><br>
+
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="checkmark checked"><b>&#10003;</b></button>  
+                    Pattern Recorder
+
+
+                </label><br>
+
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="checkmark checked"><b>&#10003;</b></button>  
+                    Pattern Printer
+
+
+                </label><br>
+
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="checkmark checked"><b>&#10003;</b></button>  
+                    Focus Mouse in Quick Search
+
+
+                </label><br>
+                
+            </div>
+            <div class="settings-column">
+                <h3>Feature-specific settings:</h3>
+                <h5><u>Custom quick link</u></h5>
+                <form id="customQuickLink">
+                    <label for="customQuickLinkName">
+                        Name: <br>
+                        <input type="text" id="customQuickLinkName">
+                    </label> <br>
+                    <label for="customQuickLinkUrl">
+                        URL: <br>
+                        <input type="text" id="customQuickLinkUrl">
+                    </label>
+                </form>
+                <p>Note: if you don't include the protocol
+                    (www. or https://) in the link, RQ
+                    may add its own domain to the beginning
+                    of your link, which breaks this feature.
+                </p>
+                <br>
+                <h3>Feedback:</h3>
+                <p>If you have any issues with this extension, or any suggestions, feel free to email me at benjaminwyborney@gmail.com. All feedback is appreciated!</p>
+            </div>
+            <div class="settings-column">
+                <h3>About:</h3>
+                <p>RQ Mods is a toolbox full of useful mods for the RQ repair ticket management software.</p>
+                <p>Here's what it can do:</p>
+                <p><u>Features</u></p>
+                <ul>
+                    <li>"Custom quick link:" adds a customizable link to the top navigation bar in RQ.</li>
+                    <li>
+                        "Serial number reminders:" when editing a ticket, highlight the serial number if it
+                        is shorter than five characters. Reminds employees to go back and fill in the full
+                        serial number if they previously entered something like "N/A."
+                    </li>
+                    <li>
+                        "Quote reminders:" when viewing a customer page, highlight the "Quotes" link on 
+                        the left if the customer has a quote available to convert.
+                    </li>
+                    <li>
+                        "Inventory-view click target adjustment:" when looking at inventory search results, clicking 
+                        anywhere except for the checkbox or menu button doesn't do anything.
+                    </li>
+                    <li>
+                        "Ticket-view click target adjustment:" when looking at a list of tickets, clicking 
+                        anywhere except for the ticket number doesn't do anything.
+                    </li>
+                    <li>
+                        "Pattern recorder" and "Pattern printer:" adds a graphical canvas for drawing customer's 
+                        unlock patterns. This can be found in the right NAVIGATION sidebar. The Printer feature draws 
+                        the unlock pattern on the label-printing page, so you can print out the pattern along with 
+                        the usual barcode label.
+                    </li>
+                    
+                    
+                    
+                </ul>
+                <p><u>RQ fixes</u></p>
+                <ul>
+                    
+                    <li>
+                        "Catalog search drop down fix:" in the current version of RQ, the dropdown menu that 
+                        appears when searching for a catalog item while editing a ticket floats off the 
+                        screen to the right. This fix re-positions that box so it always fits on-screen.
+                    </li>
+                    <li>
+                        "Quick search focus:" when you open the quick search menu, automatically focus the
+                        cursor inside the search box.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <button id="saveOptions">Save changes</button>
+        </div>
+        <script src="./scripts/options.js"></script>
+    </body>
+</html>

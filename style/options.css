@@ -1,0 +1,166 @@
+@charset "UTF-8";
+
+:root {
+    --backgroundColor: #030608;
+    --mainFontColor: #C7D4DA;
+    --primaryColor: #076b96;
+    --primaryDark: #03425d;
+    --accentColor: #47c57a; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+* > h1, * > h2, * > h3, * > p, * > a, * > ul > li, * > ol > li, * > div
+{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+  line-height: 1.5;
+  color: var(--mainFontColor);
+}
+
+* > a, * > a:hover, * > a:visited {
+    text-decoration: none;
+}
+
+* > ul, * > ol {
+    margin-left: 2.5rem;
+}
+
+body {
+    background-color: var(--backgroundColor);
+    text-align: center;
+}
+
+.bulletin {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.bulletin > div {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.bulletin > div > img {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.bulletin > div > h1 {
+    font-size: 4rem;
+    padding-top: 2rem;
+}
+
+.settings {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+.settings-column {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 4rem;
+    border-right: 4px solid var(--primaryColor);
+    text-align: left;
+}
+
+.settings-column > h3 {
+    font-size: 2.75rem;
+    text-align: center;
+}
+
+.settings-column > h5 {
+    font-size: 2rem;
+}
+
+.settings-column > label {
+    width: 100%;
+    font-size: 2rem;
+}
+
+.checkbox > button {
+    font-size: 1.25rem;
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border: solid 3px var(--accentColor);
+    border-radius: 3px;
+    color: var(--backgroundColor);
+}
+
+.checked {
+    background-color: var(--accentColor);
+}
+
+.unchecked {
+    background-color: var(--backgroundColor);
+}
+
+.settings-column > p {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 1.5rem;
+}
+
+.settings-column > ul > li {
+    width: 90%;
+    margin-right: 10%;
+    font-size: 1.25rem;
+}
+
+.settings-column > form > label {
+    font-size: 1.5rem;
+}
+
+.settings-column > form > label > input {
+    background-color: var(--backgroundColor);
+    color: var(--mainFontColor);
+    font-size: 1.25rem;
+    border: solid 5px var(--accentColor);
+    border-radius: 4px;
+    padding: 0.25rem;
+    width: 80%;
+}
+
+
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    text-align: right;
+}
+
+.footer > button {
+    background-color: var(--primaryDark);
+    border: 5px solid var(--primaryColor);
+    border-radius: 4px;
+    font-size: 2rem;
+    padding: 1rem;
+    color: var(--mainFontColor);
+}
+
+.footer > button:hover {
+    background-color: var(--primaryDark);
+    border: 5px solid var(--primaryColor);
+    border-radius: 15px;
+}
+
