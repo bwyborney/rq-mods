@@ -24,10 +24,11 @@ function remind() {
     quoteLink.style.borderRadius = '4px';
 }
 
-/*
-// This function would prevent a user from doing anything other than
-// clicking on a quote. This was not well-received during test, so
-// I'm removing it for now
+function askForOverride() {
+
+}
+
+// Prevent the "add ticket" button from being clicked
 function blockClick() {
     const injectPoint = document
         .getElementsByClassName('btn-group pull-right dropdown-with-backdrop')[0]
@@ -35,9 +36,8 @@ function blockClick() {
         .getElementsByTagName('li')[1]
         .getElementsByTagName('a')[0];
     injectPoint.href='#';
-    injectPoint.addEventListener('click', remind);
+    injectPoint.addEventListener('click', askForOverride);
 }
-*/
 
 // Check the user's sync storage to see if they've disabled this
 // whole feature. If they have, don't run any other code in this file.
