@@ -28,14 +28,22 @@ function saveOptions() {
     }
 
     // Get the user's chosen name and URL for their customer quick link
-    const customQuickLinkName = document.getElementById('customQuickLinkName').value;
-    const customQuickLinkUrl = document.getElementById('customQuickLinkUrl').value;
+    const customQuickLinkName1 = document.getElementById('customQuickLinkName1').value;
+    const customQuickLinkUrl1 = document.getElementById('customQuickLinkUrl1').value;
+    const customQuickLinkName2 = document.getElementById('customQuickLinkName2').value;
+    const customQuickLinkUrl2 = document.getElementById('customQuickLinkUrl2').value;
+    const customQuickLinkName3 = document.getElementById('customQuickLinkName3').value;
+    const customQuickLinkUrl3 = document.getElementById('customQuickLinkUrl3').value;
 
     // Apply changes to sync storage
     chrome.storage.sync.set(
         {
-            customQuickLinkName: customQuickLinkName,
-            customQuickLinkUrl: customQuickLinkUrl,
+            customQuickLinkName1: customQuickLinkName1,
+            customQuickLinkUrl1: customQuickLinkUrl1,
+            customQuickLinkName2: customQuickLinkName2,
+            customQuickLinkUrl2: customQuickLinkUrl2,
+            customQuickLinkName3: customQuickLinkName3,
+            customQuickLinkUrl3: customQuickLinkUrl3,
             enabled: checkedBoxes
         }, () => {
             alert('Options saved!');
@@ -48,8 +56,12 @@ function restoreOptions() {
     chrome.storage.sync.get(['customQuickLinkName', 'customQuickLinkUrl', 'enabled'])
     .then((result => {
         // Fill in the text fields with the custom link's name and URL
-        document.getElementById('customQuickLinkName').value = result.customQuickLinkName;
-        document.getElementById('customQuickLinkUrl').value = result.customQuickLinkUrl;
+        document.getElementById('customQuickLinkName1').value = result.customQuickLinkName1;
+        document.getElementById('customQuickLinkUrl1').value = result.customQuickLinkUrl1;
+        document.getElementById('customQuickLinkName2').value = result.customQuickLinkName2;
+        document.getElementById('customQuickLinkUrl2').value = result.customQuickLinkUrl2;
+        document.getElementById('customQuickLinkName3').value = result.customQuickLinkName3;
+        document.getElementById('customQuickLinkUrl3').value = result.customQuickLinkUrl3;
         // Mark each checkbox are 'checked' or 'unchecked' depending on its saved value
         let checkboxes = document.getElementsByClassName('checkmark');
         for (let c = 0; c < checkboxes.length; c ++) {
