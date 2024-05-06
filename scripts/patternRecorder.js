@@ -16,7 +16,7 @@ function checkIfEnabled() {
     .then((result => {
         if (result.enabled == undefined) {
             initialize();
-        } else if (result.enabled[5] == 1) {
+        } else if (result.enabled[6] == 1) {
             initialize();
         } else {
             return;

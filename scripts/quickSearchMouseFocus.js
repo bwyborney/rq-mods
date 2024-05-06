@@ -56,7 +56,7 @@ function checkIfEnabled() {
     .then((result => {
         if (result.enabled == undefined) {
             quickSearchMouseFocus();
-        } else if (result.enabled[7] == 1) {
+        } else if (result.enabled[8] == 1) {
             quickSearchMouseFocus();
         } else {
             return;

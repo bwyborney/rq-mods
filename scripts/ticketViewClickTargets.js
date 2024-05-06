@@ -23,7 +23,7 @@ function checkIfEnabled() {
     .then((result => {
         if (result.enabled == undefined) {
             ticketViewClickTargets();
-        } else if (result.enabled[4] == 1) {
+        } else if (result.enabled[5] == 1) {
             ticketViewClickTargets();
         } else {
             return;

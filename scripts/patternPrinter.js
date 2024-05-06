@@ -160,7 +160,7 @@ function checkIfEnabled() {
     .then((result => {
         if (result.enabled == undefined) {
             checkIfPattern();
-        } else if (result.enabled[6] == 1) {
+        } else if (result.enabled[7] == 1) {
             checkIfPattern();
         } else {
             return;

@@ -16,16 +16,46 @@ function checkForQuote() {
 }
 
 // If a quote was found, draw a red box around the 'quotes' link
-function remind() {
+function remind(required) {
     const quoteLink = document.querySelectorAll("a[href='#quotes']")[0];
     quoteLink.style.borderColor = '#FF3100';
     quoteLink.style.borderStyle = 'solid';
     quoteLink.style.borderWidth = '8px';
     quoteLink.style.borderRadius = '4px';
+
+    if (required) {
+        blockClick();
+    }
 }
 
-function askForOverride() {
+// Make sure we're not duplicating the override message here
+let overrideAsked = false;
 
+function askForOverride(target) {
+    if (!overrideAsked) {
+        let overrideButton = document.createElement('a');
+        overrideButton.classList = 'btn btn-new btn-primary';
+        overrideButton.innerText = 'Yes, make a ticket anyway.';
+        overrideButton.style.marginBottom = '25px';
+        overrideButton.href = target;
+
+        const injectSpot = document.getElementById('summary');
+        let overrideMessage = document.createElement('h4');
+        overrideMessage.classList.add('section-header');
+        overrideMessage.innerText = 'This customer has a quote. Are you sure you want to make a new ticket instead of converting the quote?';
+        overrideMessage.style.borderColor = '#FF3100';
+        overrideMessage.style.borderStyle = 'solid';
+        overrideMessage.style.borderWidth = '4px';
+        overrideMessage.style.borderRadius = '4px';
+        overrideMessage.style.paddingTop = '10px';
+        overrideMessage.style.paddingBottom = '10px';
+    
+        injectSpot.insertBefore(overrideButton, injectSpot.firstChild);
+        injectSpot.insertBefore(overrideMessage, injectSpot.firstChild);
+    
+        overrideAsked = true;
+
+    }
 }
 
 // Prevent the "add ticket" button from being clicked
@@ -35,8 +65,10 @@ function blockClick() {
         .getElementsByTagName('ul')[0]
         .getElementsByTagName('li')[1]
         .getElementsByTagName('a')[0];
+
+    let targetTarget = injectPoint.href;
     injectPoint.href='#';
-    injectPoint.addEventListener('click', askForOverride);
+    injectPoint.addEventListener('click', () => askForOverride(targetTarget));
 }
 
 // Check the user's sync storage to see if they've disabled this
@@ -52,7 +84,11 @@ function checkIfEnabled() {
         } else if (result.enabled[2] == 1) {
             let quoteFound = checkForQuote();
             if (quoteFound == true) {
-                remind();
+                let required = false;
+                if (result.enabled[3] == 1) {
+                    required = true;
+                }
+                remind(required);
             }
         } else {
             return;

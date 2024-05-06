@@ -26,7 +26,7 @@ function checkIfEnabled() {
     .then((result => {
         if (result.enabled == undefined) {
             inventoryViewClickTargets();
-        } else if (result.enabled[3] == 1) {
+        } else if (result.enabled[4] == 1) {
             inventoryViewClickTargets();
         } else {
             return;
