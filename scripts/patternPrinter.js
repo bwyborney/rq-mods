@@ -117,7 +117,7 @@ function addPattern() {
     // This is where the viewer will go
     let injectPoint = document.getElementsByClassName('print-receipt')[0];
 
-    // 'upMarker' is jus the word 'top' so the user will be
+    // 'upMarker' is just the word 'top' so the user will be
     // able to see which way is up once this page is printed
     let upMarker = document.createElement('p');
     upMarker.innerText = 'Top';
@@ -160,7 +160,7 @@ function checkIfEnabled() {
     .then((result => {
         if (result.enabled == undefined) {
             checkIfPattern();
-        } else if (result.enabled[7] == 1) {
+        } else if (result.enabled[6] == 1) {
             checkIfPattern();
         } else {
             return;

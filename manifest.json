@@ -101,6 +101,16 @@
                 "https://cpr.repairq.io/ticket/printLabel/*"
             ],
             "run_at": "document_end"
+        },
+
+        {
+            "js": [
+                "scripts/highlightDueToday.js"
+            ],
+            "matches" : [
+                "https://cpr.repairq.io/ticket*"
+            ],
+            "run_at": "document_end"
         }
     ]
 }
