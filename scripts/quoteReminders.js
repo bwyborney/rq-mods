@@ -71,17 +71,43 @@ function blockClick() {
     injectPoint.addEventListener('click', () => askForOverride(targetTarget));
 }
 
+function handlePopUp() {
+    let candidates = document.getElementsByClassName('modal-header');
+    for (let c  = 0; c < candidates.length; c++) {
+        if (candidates[c].children.length !== undefined && candidates[c].children.length > 1) {
+            if (candidates[c].children[1].innerText === 'Customer has open items') {
+                let footerLink = candidates[c].parentNode.children[2].children[0];
+                footerLink.innerText = 'Customer has a quote. Click here to ignore.';
+                footerLink.style.borderColor = '#FF3100';
+                footerLink.style.borderStyle = 'solid';
+                footerLink.style.borderWidth = '4px';
+                footerLink.style.borderRadius = '4px';
+            }
+        }
+    }
+    
+}
+
+function watchForPopUp() {
+    let watch = document.getElementsByClassName('c-ticket')[0];
+    const config = {childList: true, attributes: true};
+    const observer = new MutationObserver(handlePopUp);
+    observer.observe(watch, config);
+}
+
 // Check the user's sync storage to see if they've disabled this
 // whole feature. If they have, don't run any other code in this file.
 function checkIfEnabled() {
     chrome.storage.sync.get(['enabled'])
     .then((result => {
         if (result.enabled == undefined) {
+            watchForPopUp();
             let quoteFound = checkForQuote();
             if (quoteFound == true) {
                 remind();
             }
         } else if (result.enabled[2] == 1) {
+            watchForPopUp();
             let quoteFound = checkForQuote();
             if (quoteFound == true) {
                 let required = false;

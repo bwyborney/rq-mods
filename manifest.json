@@ -37,7 +37,9 @@
                 "scripts/quoteReminders.js"
             ],
             "matches" : [
-                "https://cpr.repairq.io/customers/*"
+                "https://cpr.repairq.io/customers/*",
+                "https://cpr.repairq.io/ticket/claim*",
+                "https://cpr.repairq.io/ticket/repair*"
             ],
             "run_at": "document_end"
         },
