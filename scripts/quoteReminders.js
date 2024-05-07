@@ -77,11 +77,15 @@ function handlePopUp() {
         if (candidates[c].children.length !== undefined && candidates[c].children.length > 1) {
             if (candidates[c].children[1].innerText === 'Customer has open items') {
                 let footerLink = candidates[c].parentNode.children[2].children[0];
-                footerLink.innerText = 'Customer has a quote. Click here to ignore.';
+                footerLink.innerText = 'Click here to ignore the leads (not recommended).';
                 footerLink.style.borderColor = '#FF3100';
                 footerLink.style.borderStyle = 'solid';
                 footerLink.style.borderWidth = '4px';
                 footerLink.style.borderRadius = '4px';
+
+                candidates[c].parentNode.children[1].children[0].innerText = 'Customer has a lead. Click this button to see their leads, then click the play button next to one to convert it.';
+                candidates[c].parentNode.children[1].children[1].style.display = 'none';
+                candidates[c].parentNode.children[1].children[2].style.display = 'none';
             }
         }
     }

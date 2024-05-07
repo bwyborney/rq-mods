@@ -14,7 +14,7 @@ function highlightDueToday() {
             let dd = d.getDate();
             let todaysDate = `${mm}/${dd}/${yyyy - 2000}`;
             if (estDate.includes(todaysDate)) {
-                let estDate = dates[c].children[0].style = 'font-weight: bold !important;';
+                let estDate = dates[c].children[0].style = 'font-weight: bold !important; font-style: italic !important;';
             }
         }
     }
