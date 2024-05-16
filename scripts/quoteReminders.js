@@ -105,7 +105,7 @@ function watchForPopUp() {
 
 // Check the user's sync storage to see if they've disabled this
 // whole feature. If they have, don't run any other code in this file.
-function checkIfEnabled() {
+function checkIfQREnabled() {
     chrome.storage.sync.get(['enabled'])
     .then((result => {
         if (result.enabled == undefined) {
@@ -131,4 +131,4 @@ function checkIfEnabled() {
 
 }
 
-checkIfEnabled();
+checkIfQREnabled();

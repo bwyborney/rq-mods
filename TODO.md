@@ -2,6 +2,7 @@
 
 - [x] Update how storage functions, maybe rework it if possible
 test to make sure all the settings still work
+- [ ] Options page re-work, also fix the way options work
 - [ ] Features to add:
     - [ ] Clear up blank space while editing a ticket
     - [x] Up to three custom links
@@ -14,7 +15,7 @@ test to make sure all the settings still work
 
 - [ ] Fixes:
     - [ ] Scaling on pattern drawer
-
+    - [ ] Links and probably other settings are wiping every time you open the options page
 - [ ] Make better settings page and update log
 - [ ] Make a new video
-- [ ] Publish to Chrome
+- [x] Publish to Chrome

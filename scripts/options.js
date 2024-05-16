@@ -55,6 +55,7 @@ function saveOptions() {
 function restoreOptions() {
     chrome.storage.sync.get(['customQuickLinkName', 'customQuickLinkUrl', 'enabled'])
     .then((result => {
+        console.log(result.customQuickLinkName1);
         // Fill in the text fields with the custom link's name and URL
         document.getElementById('customQuickLinkName1').value = result.customQuickLinkName1;
         document.getElementById('customQuickLinkUrl1').value = result.customQuickLinkUrl1;

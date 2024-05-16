@@ -39,7 +39,8 @@
             "matches" : [
                 "https://cpr.repairq.io/customers/*",
                 "https://cpr.repairq.io/ticket/claim*",
-                "https://cpr.repairq.io/ticket/repair*"
+                "https://cpr.repairq.io/ticket/repair*",
+                "https://cpr.repairq.io/ticket/add"
             ],
             "run_at": "document_end"
         },
