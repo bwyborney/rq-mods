@@ -5,6 +5,7 @@ test to make sure all the settings still work
 - [ ] Options page re-work, also fix the way options work
 - [ ] Features to add:
     - [ ] Clear up blank space while editing a ticket
+    - [ ] change text of tracing number to akko claim number
     - [x] Up to three custom links
     - [ ] click extension icon to go to settings page
     - [ ] label bottom of pattern drawer instead of top
