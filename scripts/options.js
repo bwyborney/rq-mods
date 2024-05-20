@@ -34,6 +34,7 @@ function saveOptions() {
     const customQuickLinkUrl2 = document.getElementById('customQuickLinkUrl2').value;
     const customQuickLinkName3 = document.getElementById('customQuickLinkName3').value;
     const customQuickLinkUrl3 = document.getElementById('customQuickLinkUrl3').value;
+    const customFrameUrl = document.getElementById('customFrameUrl').value;
 
     // Apply changes to sync storage
     chrome.storage.sync.set(
@@ -44,6 +45,7 @@ function saveOptions() {
             customQuickLinkUrl2: customQuickLinkUrl2,
             customQuickLinkName3: customQuickLinkName3,
             customQuickLinkUrl3: customQuickLinkUrl3,
+            customFrameUrl: customFrameUrl,
             enabled: checkedBoxes
         }, () => {
             alert('Options saved!');
@@ -55,7 +57,6 @@ function saveOptions() {
 function restoreOptions() {
     chrome.storage.sync.get(['customQuickLinkName', 'customQuickLinkUrl', 'enabled'])
     .then((result => {
-        console.log(result.customQuickLinkName1);
         // Fill in the text fields with the custom link's name and URL
         document.getElementById('customQuickLinkName1').value = result.customQuickLinkName1;
         document.getElementById('customQuickLinkUrl1').value = result.customQuickLinkUrl1;
@@ -63,6 +64,7 @@ function restoreOptions() {
         document.getElementById('customQuickLinkUrl2').value = result.customQuickLinkUrl2;
         document.getElementById('customQuickLinkName3').value = result.customQuickLinkName3;
         document.getElementById('customQuickLinkUrl3').value = result.customQuickLinkUrl3;
+        document.getElementById('customFrameUrl').value = result.customFrameUrl;
         // Mark each checkbox are 'checked' or 'unchecked' depending on its saved value
         let checkboxes = document.getElementsByClassName('checkmark');
         for (let c = 0; c < checkboxes.length; c ++) {
