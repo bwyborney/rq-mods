@@ -1,3 +1,28 @@
+function renderFrame(url) {
+    const parent = document.getElementById('globalSearches');
+
+    let customButton = document.createElement('a');
+    customButton.href = '#';
+    customButton.role = 'button';
+    customButton.classList = 'btn btn-primary pull-left modCustomAction';
+    customButton.rel = 'tooltip';
+    customButton.onclick = () => { 
+        document.getElementById('customFrameContainer').style.display = 'block';
+    };
+
+    let customIcon = document.createElement('i');
+    customIcon.classList = 'icon-customAction';
+    customButton.appendChild(customIcon);
+
+    let customDiv = document.createElement('div');
+    customDiv.classList = 'modal modal-new modal-full fixed-footer hide fade in';
+    customDiv.style = 'display: none; top: 30px; overflow: overlay;';
+    customDiv.id = 'customFrameContainer';
+
+    parent.insertBefore(customDiv, parent.childNodes[6]);
+    parent.insertBefore(customButton, parent.childNodes[6]);
+
+}
 
 function getFrameSource() {
     chrome.storage.sync.get(['customFrameUrl'])
