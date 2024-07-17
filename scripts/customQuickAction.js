@@ -4,7 +4,7 @@ function renderFrame(url) {
     let customButton = document.createElement('a');
     customButton.href = '#';
     customButton.role = 'button';
-    customButton.classList = 'btn btn-primary pull-left modCustomAction';
+    customButton.classList = 'modCustomAction';
     customButton.rel = 'tooltip';
     customButton.onclick = () => { 
         document.getElementById('customFrameContainer').style.display = 'block';
@@ -49,3 +49,22 @@ function checkIfCQAEnabled() {
 }
 
 checkIfCQAEnabled();
+
+
+/*
+
+{
+            "js": [
+                "scripts/customQuickAction.js"
+            ],
+            "css" : [
+                "style/customActionIcon.css"
+            ],
+            "matches" : [
+                "https://cpr.repairq.io/*"
+            ],
+            "run_at": "document_end"
+        }
+    
+
+*/

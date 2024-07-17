@@ -1,7 +1,7 @@
 {
     "manifest_version" : 3,
     "name": "RQ Mods",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "A toolbox full of useful mods for the RQ repair ticket management software.",
 
     "options_page": "options.html",
@@ -114,19 +114,8 @@
                 "https://cpr.repairq.io/ticket*"
             ],
             "run_at": "document_end"
-        },
-
-        {
-            "js": [
-                "scripts/customQuickAction.js"
-            ],
-            "css" : [
-                "style/customActionIcon.css"
-            ],
-            "matches" : [
-                "https://cpr.repairq.io/*"
-            ],
-            "run_at": "document_end"
         }
+
+        
     ]
 }
