@@ -34,7 +34,8 @@ function saveOptions() {
     const customQuickLinkUrl2 = document.getElementById('customQuickLinkUrl2').value;
     const customQuickLinkName3 = document.getElementById('customQuickLinkName3').value;
     const customQuickLinkUrl3 = document.getElementById('customQuickLinkUrl3').value;
-    const customFrameUrl = document.getElementById('customFrameUrl').value;
+    const cbtText = document.getElementById('binLabelName').value;
+    // const customFrameUrl = document.getElementById('customFrameUrl').value;
 
     // Apply changes to sync storage
     chrome.storage.sync.set(
@@ -45,8 +46,9 @@ function saveOptions() {
             customQuickLinkUrl2: customQuickLinkUrl2,
             customQuickLinkName3: customQuickLinkName3,
             customQuickLinkUrl3: customQuickLinkUrl3,
-            customFrameUrl: customFrameUrl,
-            enabled: checkedBoxes
+            // customFrameUrl: customFrameUrl,
+            enabled: checkedBoxes,
+            cbt: {enabled: true, text: cbtText}
         }, () => {
             alert('Options saved!');
         }
@@ -55,7 +57,7 @@ function saveOptions() {
 
 // When the page is loaded, restore all saved options from the user's sync storage
 function restoreOptions() {
-    chrome.storage.sync.get(['customQuickLinkName', 'customQuickLinkUrl', 'enabled'])
+    chrome.storage.sync.get(['customQuickLinkName', 'customQuickLinkUrl', 'enabled', 'cbt'])
     .then((result => {
         // Fill in the text fields with the custom link's name and URL
         document.getElementById('customQuickLinkName1').value = result.customQuickLinkName1;
@@ -64,7 +66,8 @@ function restoreOptions() {
         document.getElementById('customQuickLinkUrl2').value = result.customQuickLinkUrl2;
         document.getElementById('customQuickLinkName3').value = result.customQuickLinkName3;
         document.getElementById('customQuickLinkUrl3').value = result.customQuickLinkUrl3;
-        document.getElementById('customFrameUrl').value = result.customFrameUrl;
+        document.getElementById('binLabelName').value = result.cbt.text;
+        // document.getElementById('customFrameUrl').value = result.customFrameUrl;
         // Mark each checkbox are 'checked' or 'unchecked' depending on its saved value
         let checkboxes = document.getElementsByClassName('checkmark');
         for (let c = 0; c < checkboxes.length; c ++) {

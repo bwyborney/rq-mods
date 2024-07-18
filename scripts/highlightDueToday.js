@@ -29,17 +29,20 @@ function highlightDueToday() {
 function checkIfHDTEnabled() {
     chrome.storage.sync.get(['enabled'])
     .then((result => {
-        if (result.enabled[9]) {
-            if (result.enabled[9] == undefined) {
-                highlightDueToday();
-            } else if (result.enabled[9] == 1) {
-                highlightDueToday();
+        if (result.enabled && result.enabled.length > 0) {
+            if (result.enabled[9]) {
+                if (result.enabled[9] == undefined) {
+                    highlightDueToday();
+                } else if (result.enabled[9] == 1) {
+                    highlightDueToday();
+                } else {
+                    return;
+                }
             } else {
-                return;
+                highlightDueToday();
             }
-        } else {
-            highlightDueToday();
         }
+        
         
     }));
 

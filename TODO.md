@@ -1,3 +1,10 @@
+FOR THE POPUP: JUST MAKE IT AN IFRAME OPTION FOR THE CUSTOM LINKS
+
+
+
+
+
+
 - [x] in quoteReminders.js, need to make the askForOverride function
 
 - [x] Update how storage functions, maybe rework it if possible
