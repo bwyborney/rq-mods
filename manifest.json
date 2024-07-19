@@ -124,24 +124,15 @@
                 "https://cpr.repairq.io/ticket/*"
             ],
             "run_at": "document_end"
-        },
-        
-        {
-            "js" : [
-                "scripts/rqModsButton.js"
-            ],
-            "matches" : [
-                "https://cpr.repairq.io/*"
-            ],
-            "run_at": "document_end"
-        }   
+        }
 
     ],
 
     "web_accessible_resources": [
         {
           "resources": [ 
-            "/images/*"
+            "/images/*",
+            "/options.html"
         ],
           "matches": [ 
             "<all_urls>" 
