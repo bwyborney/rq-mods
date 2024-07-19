@@ -1,7 +1,7 @@
 FOR THE POPUP: JUST MAKE IT AN IFRAME OPTION FOR THE CUSTOM LINKS
 
-
-
+Adding RQ Mods button to top bar with function rqModsButton.js
+Alright it's done but I think I should maybe just do this as a link
 
 
 
