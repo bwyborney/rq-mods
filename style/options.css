@@ -7,6 +7,8 @@
     --primaryDark: #03425d;
     --accentColor: #03425d;
     --altAccentColor: #47c57a; 
+
+    --bulletinGradient: linear-gradient(to right, #47c57a, #A2A0A0, #A2A0A0, #076b96);
 }
 
 * {
@@ -36,8 +38,10 @@ body {
 
 .bulletin-container {
     width: 100%;
-    background-color: var(--mainFontColor);
-    margin-bottom: 1.5rem;
+    background-image: var(--bulletinGradient);
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .bulletin {
@@ -45,10 +49,9 @@ body {
     margin-left: 10%;
     margin-right: 10%;
     display: grid;
-    grid-template-columns: 5% 90% 5%;
+    grid-template-columns: 7% 86% 7%;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    background-color: var(--mainFontColor);
 }
 
 .bulletin > div {
@@ -57,18 +60,22 @@ body {
 }
 
 .bulletin > div > img {
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .bulletin > div > h1 {
     font-size: 3.5rem;
-    color: var(--backgroundColor);
+    color: var(--mainFontColor);
+    padding-top: 0.5rem;
 }
 
 .settings {
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 15rem;
     display: grid;
     grid-template-columns: 50% 50%;
 }
