@@ -4,14 +4,26 @@
     This script renders that link alongside the usual RQ nav links on every page.
 */
 
-function testFrame() {
-    let frame = document.createElement('div');
+function testFrame(src) {
+    let frame = document.createElement('div'); // Create the frame element
     frame.id = 'rqModsFrame';
+    let close = document.createElement('div'); // Create the close button
+    close.innerText = 'X';
+    close.classList = 'rqmf-close-button';
+    close.onclick = () => {document.getElementById('rqModsFrame').style.display = 'none'};
+    frame.appendChild(close);
+    let iFrame = document.createElement('iframe'); // Create the iFrame
+    iFrame.id = 'customiframe';
+    iFrame.title = 'RQ Mods Custom Frame';
+    iFrame.src = src;
+    iFrame.width = '90%';
+    iFrame.height = '90%';
+    frame.appendChild(iFrame);
 
     document.body.insertBefore(frame, document.body.lastChild);
 }
 
-testFrame();
+testFrame('https://view.monday.com/6461244663-a65ad0aefffae4eeee0ff0f585c72b9e?r=use1');
 
 function openOptions() {
     if (chrome.runtime.openOptionsPage) {
