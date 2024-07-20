@@ -12,17 +12,47 @@ function openOptions() {
     }
 }
 
+function checkDate() { // Check if an update has come out in the last five days
+    let updateDate = '7-19-2024'.split('-'); // I'll manually set the update date (plus five days) here
+    let um = parseInt(updateDate[0]); // Parse out the date
+    let ud = parseInt(updateDate[1]);
+    let uy = parseInt(updateDate[2]);
+
+    let today = new Date(); // Get today's date and parse it
+    let tm = parseInt(today.getMonth() + 1);
+    let td = parseInt(today.getDate());
+    let ty = parseInt(today.getFullYear());
+
+    let update = true;
+    if (td > ud) {
+        update = false;
+    } else if (tm > um) {
+        update = false;
+    } else if (ty > uy) {
+        update = false;
+    }
+
+    return update;
+}
+
 function rqModsButton() { // Add the RQ Mods link
     let navBarItems = document.getElementsByClassName('hover-menu');
     let insertPoint = navBarItems[6];
 
-    let imgSrc = chrome.runtime.getURL('images/fullLogo.png');
-
-    let html = `
-        <li class='hover-menu'>
-        <a id="rqModsLink" href='#' title='user-custom-link'>RQ Mods</a>
-    `;
-
+    // Create the link element with different attributes if a new update is out
+    let html = '';
+    if (checkDate()) {
+        html = `
+            <li class='hover-menu'>
+            <a id="rqModsLink" href='#' title='New update!' style='color:#47c57a'>&#10227; RQ Mods</a>
+        `;
+    } else {
+        html = `
+            <li class='hover-menu'>
+            <a id="rqModsLink" href='#' title='RQ Mods'>RQ Mods</a>
+        `;
+    }
+    
     try {
         insertPoint.insertAdjacentHTML('afterend', html);
         document.getElementById('rqModsLink').onclick = () => { openOptions() };
