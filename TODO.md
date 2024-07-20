@@ -1,7 +1,6 @@
 FOR THE POPUP: JUST MAKE IT AN IFRAME OPTION FOR THE CUSTOM LINKS
 
-Adding RQ Mods button to top bar with function rqModsButton.js
-Alright it's done but I think I should maybe just do this as a link
+options: change the right most column to just a list of links to resources, follow by the most recent blog post
 
 
 
@@ -9,12 +8,16 @@ Alright it's done but I think I should maybe just do this as a link
 
 - [x] Update how storage functions, maybe rework it if possible
 test to make sure all the settings still work
-- [ ] Options page re-work, also fix the way options work
+- [ ] Options page re-work
+    - [ ] fix the way options work
+    - [x] Better design
+    - [ ] Change font (probably just package a font with the extension)
+    - [ ] Import the .MD-to-.HTML font, and then just copy-and-paste the HTML into there
 - [ ] Features to add:
     - [ ] Clear up blank space while editing a ticket
-    - [ ] change text of tracing number to akko claim number
+    - [x] change text of tracing number to akko claim number
     - [x] Up to three custom links
-    - [ ] click extension icon to go to settings page
+    - [x] click extension icon to go to settings page
     - [ ] label bottom of pattern drawer instead of top
     - [ ] when part is attached to a ticket, turn it into a hyperlink to the cpr.parts page (editable url though)
     - [ ] alternating bg color on part search results
@@ -39,4 +42,4 @@ test to make sure all the settings still work
 
 - [ ] Make better settings page and update log
 - [ ] Make a new video
-- [x] Publish to Chrome
+- [ ] Publish to Chrome
