@@ -4,6 +4,15 @@
     This script renders that link alongside the usual RQ nav links on every page.
 */
 
+function testFrame() {
+    let frame = document.createElement('div');
+    frame.id = 'rqModsFrame';
+
+    document.body.insertBefore(frame, document.body.lastChild);
+}
+
+testFrame();
+
 function openOptions() {
     if (chrome.runtime.openOptionsPage) {
         chrome.runtime.openOptionsPage();
@@ -89,9 +98,7 @@ function renderLink(name, link) {
         } catch {
             return;
         }
-
-    }
-    
+    }  
 }
 
 // Get the user's custom link name and URL from their sync storage
@@ -116,8 +123,6 @@ function getLink() {
         link = result.customQuickLinkUrl3;
         renderLink(name, link);
     }));
-
-    
 }
 
 // Check the user's sync storage to see if they've disabled this
