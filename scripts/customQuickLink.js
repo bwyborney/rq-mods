@@ -23,7 +23,7 @@ function testFrame(src) {
     document.body.insertBefore(frame, document.body.lastChild);
 }
 
-testFrame('https://view.monday.com/6461244663-a65ad0aefffae4eeee0ff0f585c72b9e?r=use1');
+//testFrame('https://view.monday.com/6461244663-a65ad0aefffae4eeee0ff0f585c72b9e?r=use1');
 
 function openOptions() {
     if (chrome.runtime.openOptionsPage) {

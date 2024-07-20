@@ -127,6 +127,15 @@
                 "https://cpr.repairq.io/ticket/*"
             ],
             "run_at": "document_end"
+        },
+
+        {
+            "matches" : [
+                "https://cpr.repairq.io/*"
+            ],"css" : [
+                "style/betterQuickSearch.css"
+            ],
+            "run_at": "document_end"
         }
 
     ],
