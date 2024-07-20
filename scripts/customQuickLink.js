@@ -4,6 +4,35 @@
     This script renders that link alongside the usual RQ nav links on every page.
 */
 
+function openOptions() {
+    if (chrome.runtime.openOptionsPage) {
+        chrome.runtime.openOptionsPage();
+    } else {
+    window.open(chrome.runtime.getURL('options.html'));
+    }
+}
+
+function rqModsButton() { // Add the RQ Mods link
+    let navBarItems = document.getElementsByClassName('hover-menu');
+    let insertPoint = navBarItems[6];
+
+    let imgSrc = chrome.runtime.getURL('images/fullLogo.png');
+
+    let html = `
+        <li class='hover-menu'>
+        <a id="rqModsLink" href='#' title='user-custom-link'>RQ Mods</a>
+    `;
+
+    try {
+        insertPoint.insertAdjacentHTML('afterend', html);
+        document.getElementById('rqModsLink').onclick = () => { openOptions() };
+    } catch {
+        return;
+    }
+}
+
+rqModsButton();
+
 function renderLink(name, link) {
     // Identify the navbar, and specifically choose the last item in the navbar. 
     // This is where our link will be placed.

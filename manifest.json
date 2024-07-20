@@ -124,7 +124,20 @@
                 "https://cpr.repairq.io/ticket/*"
             ],
             "run_at": "document_end"
-        }        
+        }
 
+    ],
+
+    "web_accessible_resources": [
+        {
+          "resources": [ 
+            "/images/*",
+            "/options.html"
+        ],
+          "matches": [ 
+            "<all_urls>" 
+        ]
+        }
     ]
+
 }
