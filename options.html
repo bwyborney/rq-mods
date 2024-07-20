@@ -6,13 +6,16 @@
         <link rel="stylesheet" href="./style/options.css">
     </head>
     <body>
-        <div class="bulletin">
-            <div>
-                <img src="./images/fullLogo.png">
+        <div class="bulletin-container">
+            <div class="bulletin">
+                <div>
+                    <img src="./images/fullLogo.png">
+                </div>
+                <div>
+                    <h1>RQ Mods - Options</h1>
+                </div> 
+                <button id="saveOptions">Save</button>
             </div>
-            <div>
-                <h1>RQ Mods Settings</h1>
-            </div> 
         </div>
         <div class="settings">
             <div class="settings-column">
@@ -164,11 +167,9 @@
                     </label> 
                 </form>
                 --> 
-                
-                <br>
-                <h3>Feedback:</h3>
-                <p>If you have any issues with this extension, or any suggestions, feel free to email me at benjaminwyborney@gmail.com. All feedback is appreciated!</p>
+              
             </div>
+            <!--
             <div class="settings-column">
                 <h3>About:</h3>
                 <p>RQ Mods is a toolbox full of useful mods for the RQ repair ticket management software.</p>
@@ -225,10 +226,14 @@
                     </li>
                 </ul>
             </div>
+
+            -->
+
+
+
+
         </div>
-        <div class="footer">
-            <button id="saveOptions">Save changes</button>
-        </div>
+        
         <script src="./scripts/options.js"></script>
     </body>
 </html>

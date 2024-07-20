@@ -1,11 +1,12 @@
 @charset "UTF-8";
 
 :root {
-    --backgroundColor: #030608;
-    --mainFontColor: #C7D4DA;
+    --backgroundColor: #FFFFFF;
+    --mainFontColor: #030608;
     --primaryColor: #076b96;
     --primaryDark: #03425d;
-    --accentColor: #47c57a; 
+    --accentColor: #03425d;
+    --altAccentColor: #47c57a; 
 }
 
 * {
@@ -33,39 +34,43 @@ body {
     text-align: center;
 }
 
+.bulletin-container {
+    width: 100%;
+    background-color: var(--mainFontColor);
+    margin-bottom: 1.5rem;
+}
+
 .bulletin {
-    width: 40%;
-    margin-left: 30%;
-    margin-right: 30%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
-.bulletin > div {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-.bulletin > div > img {
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color: var(--mainFontColor);
+}
+
+.bulletin > div {
+    width: 100%;
+    text-align: center;
+}
+
+.bulletin > div > img {
+    width: 100%;
 }
 
 .bulletin > div > h1 {
-    font-size: 4rem;
-    padding-top: 2rem;
+    font-size: 3.5rem;
+    color: var(--backgroundColor);
 }
 
 .settings {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 50% 50%;
 }
 
 .settings-column {
@@ -73,13 +78,12 @@ body {
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 4rem;
-    border-right: 4px solid var(--primaryColor);
     text-align: left;
 }
 
 .settings-column > h3 {
     font-size: 2.75rem;
-    text-align: center;
+    text-align: left;
 }
 
 .settings-column > h5 {
@@ -111,9 +115,7 @@ body {
 }
 
 .settings-column > p {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+    width: 100%;
     font-size: 1.5rem;
 }
 
@@ -131,36 +133,27 @@ body {
     background-color: var(--backgroundColor);
     color: var(--mainFontColor);
     font-size: 1.25rem;
-    border: solid 5px var(--accentColor);
+    border: solid 5px var(--mainFontColor);
+    border-bottom-color: var(--accentColor);
     border-radius: 4px;
     padding: 0.25rem;
     width: 80%;
 }
 
-
-
-
-.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: transparent;
-    text-align: right;
+#saveOptions {
+    background-color: var(--primaryDark);
+    border: 5px solid var(--primaryDark);
+    border-radius: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.5rem;
+    color: var(--backgroundColor);
+    cursor: pointer;
 }
 
-.footer > button {
-    background-color: var(--primaryDark);
-    border: 5px solid var(--primaryColor);
-    border-radius: 4px;
-    font-size: 2rem;
-    padding: 1rem;
-    color: var(--mainFontColor);
-}
-
-.footer > button:hover {
-    background-color: var(--primaryDark);
+#saveOptions:hover {
+    background-color: var(--primaryColor);
     border: 5px solid var(--primaryColor);
     border-radius: 15px;
+    transition: 0.2s;
 }
-
