@@ -69,6 +69,9 @@
             "js": [
                 "scripts/customQuickLink.js"
             ],
+            "css" : [
+                "style/customQuickFrame.css"
+            ],
             "matches": [
                 "https://cpr.repairq.io/*"
             ],
@@ -122,6 +125,15 @@
             ],
             "matches" : [
                 "https://cpr.repairq.io/ticket/*"
+            ],
+            "run_at": "document_end"
+        },
+
+        {
+            "matches" : [
+                "https://cpr.repairq.io/*"
+            ],"css" : [
+                "style/betterQuickSearch.css"
             ],
             "run_at": "document_end"
         }

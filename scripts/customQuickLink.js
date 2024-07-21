@@ -4,6 +4,27 @@
     This script renders that link alongside the usual RQ nav links on every page.
 */
 
+function testFrame(src) {
+    let frame = document.createElement('div'); // Create the frame element
+    frame.id = 'rqModsFrame';
+    let close = document.createElement('div'); // Create the close button
+    close.innerText = 'X';
+    close.classList = 'rqmf-close-button';
+    close.onclick = () => {document.getElementById('rqModsFrame').style.display = 'none'};
+    frame.appendChild(close);
+    let iFrame = document.createElement('iframe'); // Create the iFrame
+    iFrame.id = 'customiframe';
+    iFrame.title = 'RQ Mods Custom Frame';
+    iFrame.src = src;
+    iFrame.width = '90%';
+    iFrame.height = '90%';
+    frame.appendChild(iFrame);
+
+    document.body.insertBefore(frame, document.body.lastChild);
+}
+
+//testFrame('https://view.monday.com/6461244663-a65ad0aefffae4eeee0ff0f585c72b9e?r=use1');
+
 function openOptions() {
     if (chrome.runtime.openOptionsPage) {
         chrome.runtime.openOptionsPage();
@@ -12,17 +33,47 @@ function openOptions() {
     }
 }
 
+function checkDate() { // Check if an update has come out in the last five days
+    let updateDate = '7-19-2024'.split('-'); // I'll manually set the update date (plus five days) here
+    let um = parseInt(updateDate[0]); // Parse out the date
+    let ud = parseInt(updateDate[1]);
+    let uy = parseInt(updateDate[2]);
+
+    let today = new Date(); // Get today's date and parse it
+    let tm = parseInt(today.getMonth() + 1);
+    let td = parseInt(today.getDate());
+    let ty = parseInt(today.getFullYear());
+
+    let update = true;
+    if (td > ud) {
+        update = false;
+    } else if (tm > um) {
+        update = false;
+    } else if (ty > uy) {
+        update = false;
+    }
+
+    return update;
+}
+
 function rqModsButton() { // Add the RQ Mods link
     let navBarItems = document.getElementsByClassName('hover-menu');
     let insertPoint = navBarItems[6];
 
-    let imgSrc = chrome.runtime.getURL('images/fullLogo.png');
-
-    let html = `
-        <li class='hover-menu'>
-        <a id="rqModsLink" href='#' title='user-custom-link'>RQ Mods</a>
-    `;
-
+    // Create the link element with different attributes if a new update is out
+    let html = '';
+    if (checkDate()) {
+        html = `
+            <li class='hover-menu'>
+            <a id="rqModsLink" href='#' title='New update!' style='color:#47c57a'>&#10227; RQ Mods</a>
+        `;
+    } else {
+        html = `
+            <li class='hover-menu'>
+            <a id="rqModsLink" href='#' title='RQ Mods'>RQ Mods</a>
+        `;
+    }
+    
     try {
         insertPoint.insertAdjacentHTML('afterend', html);
         document.getElementById('rqModsLink').onclick = () => { openOptions() };
@@ -59,9 +110,7 @@ function renderLink(name, link) {
         } catch {
             return;
         }
-
-    }
-    
+    }  
 }
 
 // Get the user's custom link name and URL from their sync storage
@@ -86,8 +135,6 @@ function getLink() {
         link = result.customQuickLinkUrl3;
         renderLink(name, link);
     }));
-
-    
 }
 
 // Check the user's sync storage to see if they've disabled this
