@@ -1,7 +1,7 @@
 {
     "manifest_version" : 3,
     "name": "RQ Mods",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "description": "A toolbox full of useful mods for the RQ repair ticket management software.",
 
     "options_page": "options.html",

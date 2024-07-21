@@ -1,7 +1,23 @@
 FOR THE POPUP: JUST MAKE IT AN IFRAME OPTION FOR THE CUSTOM LINKS
 
-options: change the right most column to just a list of links to resources, follow by the most recent blog post
-
+I'm over in the m2h files, writing the example 6 folder which is everything that's gonna go on my website.
+I need to finish the features page with a list of upcoming features
+I then need to make the instructions page 
+I need to finish the TOC/navbar so that the instructions page will be somewhat usable
+I then need to make the feedback/contact page
+Then I need tomake you tube videos (one showing what RQ Mods can do and one showing how to set it up) - every time I add a new feature, that will get its own video
+    version 2 coming soon, bunch of new features and new design and the storage bug is fixed forever
+    Also there will be a donate button
+Then in the options.html page, I need to link to:
+    The instructions
+    The list of features
+    I need to include the latest blog post page
+    Also the video
+    Then I need to link to other extensions
+    I need to link to other extensions in my blog pages as well
+    Those extensions need their own little websites too
+I'll need to link to these resources from my chrome web store listing pages
+If I can make a poll element, that would be sweet because I could figure out if people want other browsers
 
 
 - [x] in quoteReminders.js, need to make the askForOverride function
