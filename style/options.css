@@ -8,7 +8,7 @@
     --accentColor: #03425d;
     --altAccentColor: #47c57a; 
 
-    --bulletinGradient: linear-gradient(to right, #47c57a, #A2A0A0, #A2A0A0, #076b96);
+    --bulletinGradient: linear-gradient(to right, #47c57a, #A2A0A0, #A2A0A0, #A2A0A0, #A2A0A0, #076b96);
 }
 
 * {
@@ -52,30 +52,34 @@ body {
     grid-template-columns: 7% 86% 7%;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    background-color: #11ffee00;
 }
 
 .bulletin > div {
     width: 100%;
     text-align: center;
+    background-color: #11ffee00;
 }
 
 .bulletin > div > img {
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+    background-color: #11ffee00;
 }
 
 .bulletin > div > h1 {
     font-size: 3.5rem;
     color: var(--mainFontColor);
     padding-top: 0.5rem;
+    background-color: #11ffee00;
 }
 
 .settings {
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 15rem;
+    margin-top: 12rem;
     display: grid;
     grid-template-columns: 50% 50%;
 }
@@ -89,31 +93,34 @@ body {
 }
 
 .settings-column > h3 {
-    font-size: 2.75rem;
+    font-size: 2.25rem;
     text-align: left;
 }
 
 .settings-column > h5 {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .settings-column > label {
     width: 100%;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    line-height: 3.5rem;
 }
 
 .checkbox > button {
     font-size: 1.25rem;
-    padding-top: 0.125rem;
-    padding-bottom: 0.125rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    margin-right: 5px;
     border: solid 3px var(--accentColor);
     border-radius: 3px;
     color: var(--backgroundColor);
+    cursor: pointer;
 }
 
-.checked {
+.checked, .checked > * {
     background-color: var(--accentColor);
 }
 
@@ -123,7 +130,7 @@ body {
 
 .settings-column > p {
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .settings-column > ul > li {
@@ -132,8 +139,12 @@ body {
     font-size: 1.25rem;
 }
 
+.settings-column > form {
+    margin-bottom: 25px;
+}
+
 .settings-column > form > label {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .settings-column > form > label > input {
@@ -145,6 +156,7 @@ body {
     border-radius: 4px;
     padding: 0.25rem;
     width: 80%;
+    margin-bottom: 10px;
 }
 
 #saveOptions {
@@ -163,4 +175,9 @@ body {
     border: 5px solid var(--primaryColor);
     border-radius: 15px;
     transition: 0.2s;
+}
+
+.qlCheck > input {
+    width: 10%;
+    text-align: left;
 }

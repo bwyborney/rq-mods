@@ -107,13 +107,14 @@
                 <br>
 
                 <h3>Feature-specific settings:</h3>
-                <h5><u>Custom quick link</u></h5>
-                <p>Note: if you don't include the protocol
-                    (www. or https://) in the link, RQ
-                    may add its own domain to the beginning
-                    of your link, which breaks this feature.
-                </p>
+                <h5><u>Custom quick links</u></h5>
+                <p>Note: you will probably need to include the protocol (www. or https://) in the link.</p>
+                <p>Other note: some websites don't let you load them as a frame, for security reasons.</p>
                 <br>
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="ql-checkmark checked" id="customQuickLinkFrame1"><b>&#10003;</b></button>  
+                    Link 1: open as a frame
+                </label>
                 <form id="customQuickLink1">
                     <label for="customQuickLinkName1">
                         Link 1 Name: <br>
@@ -124,9 +125,12 @@
                         <input type="text" id="customQuickLinkUrl1">
                     </label>
                 </form>
-                <br>
-                <br>
-
+                
+                
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="ql-checkmark checked" id="customQuickLinkFrame2"><b>&#10003;</b></button>  
+                    Link 2: open as a frame
+                </label>
                 <form id="customQuickLink2">
                     <label for="customQuickLinkName2">
                         Link 2 Name: <br>
@@ -137,9 +141,11 @@
                         <input type="text" id="customQuickLinkUrl2">
                     </label>
                 </form>
-                <br>
-                <br>
-
+                
+                <label class="checkbox">
+                    <button type="button" data-checked="checked" class="ql-checkmark checked" id="customQuickLinkFrame3"><b>&#10003;</b></button>  
+                    Link 3: open as a frame
+                </label>
                 <form id="customQuickLink3">
                     <label for="customQuickLinkName3">
                         Link 3 Name: <br>
@@ -151,12 +157,11 @@
                     </label>
                 </form>
 
-                <br>
-                <br>
-
+                
+                <h5><u>Custom bin label text</u></h5>
                 <form id="customBinLabel">
                     <label for="binLabelName">
-                        Custom bin label text: <br>
+                        Text: <br>
                         <input type="text" id="binLabelName">
                     </label> <br>
                     
@@ -173,60 +178,22 @@
             </div>
             
             <div class="settings-column">
-                <h3>About:</h3>
-                <p>RQ Mods is a toolbox full of useful mods for the RQ repair ticket management software.</p>
-                <p>Here's what it can do:</p>
-                <p><u>Features</u></p>
-                <ul>
-                    <li>"Custom quick link:" adds a customizable link to the top navigation bar in RQ.</li>
-                    <li>
-                        "Serial number reminders:" when editing a ticket, highlight the serial number if it
-                        is shorter than five characters. Reminds employees to go back and fill in the full
-                        serial number if they previously entered something like "N/A."
-                    </li>
-                    <li>
-                        "Quote reminders:" when viewing a customer page, highlight the "Quotes" link on 
-                        the left if the customer has a quote available to convert.
-                    </li>
-                    <li>
-                        "Quotes required:" makes users click an additional button if they try to make a ticket
-                        without converting a quote.
-                    </li>
-                    <li>
-                        "Inventory-view click target adjustment:" when looking at inventory search results, clicking 
-                        anywhere except for the checkbox or menu button doesn't do anything.
-                    </li>
-                    <li>
-                        "Ticket-view click target adjustment:" when looking at a list of tickets, clicking 
-                        anywhere except for the ticket number doesn't do anything.
-                    </li>
-                    <li>
-                        "Pattern recorder" and "Pattern printer:" adds a graphical canvas for drawing customer's 
-                        unlock patterns. This can be found in the right NAVIGATION sidebar. The Printer feature draws 
-                        the unlock pattern on the label-printing page, so you can print out the pattern along with 
-                        the usual barcode label.
-                    </li>
-                    <li>
-                        "Bold tickets due today:" bolds the due dates of any tickets which are due today in any 
-                        ticket list view.
-                    </li>
-                    
-                    
-                    
-                </ul>
-                <p><u>RQ fixes</u></p>
-                <ul>
-                    
-                    <li>
-                        "Catalog search drop down fix:" in the current version of RQ, the dropdown menu that 
-                        appears when searching for a catalog item while editing a ticket floats off the 
-                        screen to the right. This fix re-positions that box so it always fits on-screen.
-                    </li>
-                    <li>
-                        "Quick search focus:" when you open the quick search menu, automatically focus the
-                        cursor inside the search box.
-                    </li>
-                </ul>
+                <div id="parsed"><div class='md-page-name'>RQ Mods</div><p class="md-p">RQ Mods is a free Chrome extension which adds extra features to RepairQ, while also fixing a few bugs and design issues. 
+                </p><br><br><div class="md-h1" id=mdh-Quick-links->Quick links</div>
+                <a href="http://benwyborney.com/rqmods/RQ%20Mods%20Features.html" class="md-hyperlink">RQ Mods features</a>
+                <br><a href="http://benwyborney.com/rqmods/Instructions.html" class="md-hyperlink">How to use RQ Mods</a>
+                <br><a href="http://benwyborney.com/rqmods/Updates.html" class="md-hyperlink">List of updates</a>
+                <br><a href="http://benwyborney.com/rqmods/Other%20projects.html" class="md-hyperlink">My other projects</a>
+                <br><br><br><div class="md-h1" id=mdh-Latest-update->Latest update</div>
+                <div class="md-h3" id=mdh-Version-1.2.2---7/21/24->Version 1.2.2 - 7/21/24</div>
+                <p class="md-p"><b>New features:</b>
+                </p><ul class="md-ul"><li>Improved the options page with a better layout and design.</li></ul>
+                <ul class="md-ul"><li>New option to open custom links as frames from within RepairQ.</li></ul>
+                <ul class="md-ul"><li>Added this update log, so you can see what changes have been made and when.</li></ul>
+                <ul class="md-ul"><li>Created a separate website listing all the features and instructions for RQ Mods.</li></ul>
+                <ul class="md-ul"><li>Added an RQ Mods link to the RQ navigation bar, so you can get to these new options and resources instantly. This link will be highlighted for a few days after an update happens.</li></ul>
+                <ul class="md-ul"><li>Added better spacing and design for the quick search tool.</li></ul>
+                <br></div>
             </div>
 
         </div>

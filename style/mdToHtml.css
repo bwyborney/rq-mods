@@ -1,5 +1,8 @@
 @charset "utf-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
     /* Palette of complimentary colors in various shades of red, green, and blue */
     --c1a: #98AFBA;
@@ -33,6 +36,8 @@
     --button-color: #2A5367;
     --button-inverse-color: #668696;
     --category-tag-color: #98AFBA;
+    
+    --navbar-color: #98AFBA;
 
     --font-color: black;
     --inverse-font-color: white;
@@ -50,6 +55,7 @@
 
 * > h1, * > h2, * > h3, * > h4, * > h5, * > p, * > a, * > ul > li, * > ol > li, * > div
 {
+  font-family: "Manrope", "Optima", "Tahoma", "Verdana", sans-serif;
   line-height:1.5;
   color: var(--font-color);
   font-weight: var(--fontweight-default);
@@ -64,10 +70,82 @@
     margin-left: 2rem;
 }
 
+#md2html {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.md-navbar-container {
+    width: 53%;
+    margin-left: 47%;
+    margin-right: 0;
+}
+
+.md-navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    height: 100vh;
+    width: 100%;
+    padding-right: 10%;
+}
+
+.md-navbar-title > div {
+    border-bottom: solid 1px var(--navbar-color);
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.md-nav-item > div {
+    background-color: var(--background-color);
+    border: solid 5px var(--background-color);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 0.1s;
+}
+
+.md-nav-item > div:hover, .md-nav-item-active > div {
+    background-color: var(--navbar-color);
+    border: solid 5px var(--navbar-color);
+    border-radius: 10px;
+    transition: 0.1s;
+}
+
+.md-nav-2 > div {
+    padding-left: 5%;
+}
+
+.md-nav-3 > div {
+    padding-left: 10%;
+}
+
+.md-nav-4 > div {
+    padding-left: 15%;
+}
+
+.md-nav-5 > div {
+    padding-left: 20%;
+}
+
+.md-nav-6 > div {
+    padding-left: 25%;
+}
+
+#md-mobile-header {
+    display: none;
+}
+
 #parsed {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
+    width: 75%;
+    margin-right: 20%;
+    margin-left: 5%;
+    display: inline-block;
+}
+
+.md-page-name {
+    font-size: 3.8rem;
 }
 
 .md-h1, .md-h1 > *, .md-h1 > * > *, .md-h1 > * > * > * {
@@ -309,10 +387,82 @@ b {
 }
 
 @media only screen and (max-width: 720px) {
+    #md2html {
+        display: grid;
+        grid-template-columns: 100% !important; 
+    }
+    
+    .md-navbar-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        display: inline-block;
+        margin-top: 6rem;
+    }
+
+    .md-navbar-title {
+        display: none;
+    }
+
+    #md-mobile-header {
+        display: grid !important;
+        grid-template-columns: 80% 20%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-bottom: solid 1px var(--navbar-color);
+    }
+
+    .md-page-name-mobile {
+        font-size: 2rem;
+        width: 100%;
+        margin-left: 0;
+        cursor: pointer;
+    }
+
+    #md-mobile-nav-button {
+        font-size: 1.3rem;
+        width: 90%;
+        margin-left: 0;
+        margin-right: 10%;
+        margin-top: 0.3rem;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .mnb-inactive {
+        border: solid 2px var(--background-color);
+        border-radius: 5px;
+        background-color: var(--background-color);
+        color: var(--font-color);
+
+    }
+
+    .mnb-active {
+        background-color: var(--navbar-color);
+        border: solid 2px var(--navbar-color);
+        border-radius: 5px;
+        color: var(--font-color);
+        transition: 0.2s;
+    }
+
+    .md-page-name {
+        display: none;
+    }
+
+    .md-navbar {
+        position: fixed;
+        top: 3rem;
+        left: 0;
+
+    }
+
     #parsed {
         width: 90%;
         margin-left: 5%;
         margin-right: 5%;
+        margin-top: 6rem;
     }
 
     .md-category-tag {

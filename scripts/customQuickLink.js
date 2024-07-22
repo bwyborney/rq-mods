@@ -4,26 +4,27 @@
     This script renders that link alongside the usual RQ nav links on every page.
 */
 
-function testFrame(src) {
+function openFrame(src, id) {
     let frame = document.createElement('div'); // Create the frame element
-    frame.id = 'rqModsFrame';
+    frame.id = id;
+    frame.classList = 'rqModsFrame';
     let close = document.createElement('div'); // Create the close button
     close.innerText = 'X';
     close.classList = 'rqmf-close-button';
-    close.onclick = () => {document.getElementById('rqModsFrame').style.display = 'none'};
+    close.onclick = () => {document.getElementById(id).style.display = 'none'};
     frame.appendChild(close);
     let iFrame = document.createElement('iframe'); // Create the iFrame
-    iFrame.id = 'customiframe';
+    iFrame.id = 'customiframe-' + id;
+    iFrame.classList = 'customiframe';
     iFrame.title = 'RQ Mods Custom Frame';
     iFrame.src = src;
     iFrame.width = '90%';
     iFrame.height = '90%';
+    frame.style.display = 'none';
     frame.appendChild(iFrame);
 
     document.body.insertBefore(frame, document.body.lastChild);
 }
-
-//testFrame('https://view.monday.com/6461244663-a65ad0aefffae4eeee0ff0f585c72b9e?r=use1');
 
 function openOptions() {
     if (chrome.runtime.openOptionsPage) {
@@ -34,7 +35,7 @@ function openOptions() {
 }
 
 function checkDate() { // Check if an update has come out in the last five days
-    let updateDate = '7-19-2024'.split('-'); // I'll manually set the update date (plus five days) here
+    let updateDate = '7-21-2024'.split('-'); // I'll manually set the update date (plus five days) here
     let um = parseInt(updateDate[0]); // Parse out the date
     let ud = parseInt(updateDate[1]);
     let uy = parseInt(updateDate[2]);
@@ -84,7 +85,7 @@ function rqModsButton() { // Add the RQ Mods link
 
 rqModsButton();
 
-function renderLink(name, link) {
+function renderLink(name, link, frame) {
     // Identify the navbar, and specifically choose the last item in the navbar. 
     // This is where our link will be placed.
     let navBarItems = document.getElementsByClassName('hover-menu');
@@ -99,10 +100,22 @@ function renderLink(name, link) {
     }
 
     // Create the new link element and insert it
-    let html = `
-        <li class='hover-menu'>
-        <a href='${link}' alt=${name} title='user-custom-link'>${name}</a>
-    `;
+    let html = '';
+    if (frame === true && frame !== undefined && link !== 'https://cpr.repairq.io') {
+        let frameId = name.replace(/\s/gm, '-');
+
+        html = `
+            <li class='hover-menu'>
+            <a href='#' alt='${name}' title='user-custom-link' onclick = 'document.getElementById("${frameId}").style.display = "block"'>${name}</a>
+        `;
+        
+        openFrame(link, frameId);
+    } else {
+        html = `
+            <li class='hover-menu'>
+            <a href='${link}' alt='${name}' title='user-custom-link'>${name}</a>
+        `;
+    }
 
     if (name !== 'custom quick link') {
         try {
@@ -117,23 +130,26 @@ function renderLink(name, link) {
 function getLink() {
     let name = '';
     let link = '';
-    chrome.storage.sync.get(['customQuickLinkName1', 'customQuickLinkUrl1'])
+    chrome.storage.sync.get(['customQuickLinkName1', 'customQuickLinkUrl1', 'customQuickLinkFrame1'])
     .then((result => {
         name = result.customQuickLinkName1;
         link = result.customQuickLinkUrl1;
-        renderLink(name, link);
+        frame = result.customQuickLinkFrame1;
+        renderLink(name, link, frame);
     }));
-    chrome.storage.sync.get(['customQuickLinkName2', 'customQuickLinkUrl2'])
+    chrome.storage.sync.get(['customQuickLinkName2', 'customQuickLinkUrl2', 'customQuickLinkFrame2'])
     .then((result => {
         name = result.customQuickLinkName2;
         link = result.customQuickLinkUrl2;
-        renderLink(name, link);
+        frame = result.customQuickLinkFrame2;
+        renderLink(name, link, frame);
     }));
-    chrome.storage.sync.get(['customQuickLinkName3', 'customQuickLinkUrl3'])
+    chrome.storage.sync.get(['customQuickLinkName3', 'customQuickLinkUrl3', 'customQuickLinkFrame3'])
     .then((result => {
         name = result.customQuickLinkName3;
         link = result.customQuickLinkUrl3;
-        renderLink(name, link);
+        frame = result.customQuickLinkFrame3;
+        renderLink(name, link, frame);
     }));
 }
 

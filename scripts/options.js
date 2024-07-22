@@ -13,6 +13,16 @@ function toggleBox() {
     }
 }
 
+function toggleLinkBox() {
+    if (this.getAttribute('data-checked') == 'checked') {
+        this.setAttribute('data-checked', 'unchecked');
+        this.className = 'ql-checkmark unchecked';
+    } else {
+        this.setAttribute('data-checked', 'checked');
+        this.className = 'ql-checkmark checked';
+    }
+}
+
 // Save all options on the page when the 'save' button is clicked
 function saveOptions() {
     // Find all the checkboxes and record whether they are checked (1) 
@@ -35,18 +45,32 @@ function saveOptions() {
     const customQuickLinkName3 = document.getElementById('customQuickLinkName3').value;
     const customQuickLinkUrl3 = document.getElementById('customQuickLinkUrl3').value;
     const cbtText = document.getElementById('binLabelName').value;
-    // const customFrameUrl = document.getElementById('customFrameUrl').value;
+    // Check if the links are set to be opened as frames
+    let customQuickLinkFrame1 = false;
+    if (document.getElementById('customQuickLinkFrame1').getAttribute('data-checked') === 'checked') {
+        customQuickLinkFrame1 = true;
+    }
+    let customQuickLinkFrame2 = false;
+    if (document.getElementById('customQuickLinkFrame2').getAttribute('data-checked') === 'checked') {
+        customQuickLinkFrame2 = true;
+    }
+    let customQuickLinkFrame3 = false;
+    if (document.getElementById('customQuickLinkFrame3').getAttribute('data-checked') === 'checked') {
+        customQuickLinkFrame3 = true;
+    }
 
     // Apply changes to sync storage
     chrome.storage.sync.set(
         {
             customQuickLinkName1: customQuickLinkName1,
             customQuickLinkUrl1: customQuickLinkUrl1,
+            customQuickLinkFrame1: customQuickLinkFrame1,
             customQuickLinkName2: customQuickLinkName2,
             customQuickLinkUrl2: customQuickLinkUrl2,
+            customQuickLinkFrame2: customQuickLinkFrame2,
             customQuickLinkName3: customQuickLinkName3,
             customQuickLinkUrl3: customQuickLinkUrl3,
-            // customFrameUrl: customFrameUrl,
+            customQuickLinkFrame3: customQuickLinkFrame3,
             enabled: checkedBoxes,
             cbt: {enabled: true, text: cbtText}
         }, () => {
@@ -66,7 +90,12 @@ function restoreOptions() {
         document.getElementById('customQuickLinkUrl2').value = result.customQuickLinkUrl2;
         document.getElementById('customQuickLinkName3').value = result.customQuickLinkName3;
         document.getElementById('customQuickLinkUrl3').value = result.customQuickLinkUrl3;
-        document.getElementById('binLabelName').value = result.cbt.text;
+        if (result.cbt !== undefined) {
+            document.getElementById('binLabelName').value = result.cbt.text;
+        } else {
+            document.getElementById('binLabelName').value = 'In Possession';
+        }
+        
         // document.getElementById('customFrameUrl').value = result.customFrameUrl;
         // Mark each checkbox are 'checked' or 'unchecked' depending on its saved value
         let checkboxes = document.getElementsByClassName('checkmark');
@@ -94,6 +123,9 @@ function addButtonListeners() {
     for (let n = 0; n < checkboxes.length; n++) {
         checkboxes[n].addEventListener('click', toggleBox);
     }
+    document.getElementById('customQuickLinkFrame1').addEventListener('click', toggleLinkBox);
+    document.getElementById('customQuickLinkFrame2').addEventListener('click', toggleLinkBox);
+    document.getElementById('customQuickLinkFrame3').addEventListener('click', toggleLinkBox);
 }
 
 restoreOptions();
