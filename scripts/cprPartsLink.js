@@ -19,34 +19,53 @@ render the link in the row
 
 
 
-Here's my observer from rq checkin as an example:
-let watch = document.getElementsByClassName('c-ticket')[0];
-const config = {childList: true, attributes: true};
-const observer = new MutationObserver(checkForForm);
-if (document.getElementsByClassName('c-ticket')[0]) {
-    observer.observe(watch, config);
+WHERE I'M LEAVING OFF
+passing sku info to generateLink
+need to check if it's not a repair, then generate a link element
+pass that element back then append it
+
+
+possible skuType
+Repair - Phone
+Part - Phone
+Accessory - Screen Protector
+
+
+
+
+*/
+
+function generateLink(skuType, sku) {
+    console.log(skuType);
+    console.log(sku);
+    console.log(supplier);
 }
-
-#ticket-items
-
-*/
-
-
-
-/*
-i got the observer working, now on to the rest
-
-*/
 
 function begin() {
-    startObserver();
+    observer.disconnect(); // Stop the observer for now so it doesn't repeatedly trigger
+
+    let rows = document.getElementsByClassName('ticket-item-row'); // The rows in the items table
+    if (rows.length > 0) {
+        for (let r = 0; r < rows.length; r++) {
+            let rowId = rows[r].getAttribute('itemid'); // Get the index of this item, according to what RepairQ has given it
+            let details = document.getElementsByClassName(`item-detail-${rowId}`); // Identify the  div containing all the details of the SKU
+            if (details.length === 1) {
+                let skuType = details[0].children[1].children[0].children[1].innerText;
+                let sku = details[0].children[1].children[0].children[7].innerText;
+                let link = generateLink(skuType, sku);
+            }
+        }
+    }
+
+    setTimeout(() => {startObserver()}, '500'); // Delay starting the observer to prevent rapid repeated triggers
 }
+
+const config = {subtree: true, childList: true};
+let observer = new MutationObserver(begin);
 
 function startObserver() {
     if(document.getElementById('ticket-items') !== undefined) {
         let watch = document.getElementById('ticket-items');
-        const config = {subtree: true, attributes: true};
-        const observer = new MutationObserver(begin);
         observer.observe(watch, config);
     }
 }

@@ -1,4 +1,3 @@
-
 - [ ] make the feedback/contact page
 - [ ] Redo the pattern drawer
 - [ ] label bottom of pattern printer instead of top
