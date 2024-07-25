@@ -31,6 +31,10 @@ Part - Phone
 Accessory - Screen Protector
 
 
+The problem is that cpr.parts does not have a good way to link directly to a certain SKU.
+We can enter a search query in the URL, but we need an API key to go along with it, and that changes every time.
+We can link directly to a product page, but the URLs for those are made using the name of the product, however the product name rarely matches what appears in repairQ or on CPR.parts itself. Words are often substituted with no consistent rhyme or reason.
+So I don't see how we'll be able to do this.
 
 
 */

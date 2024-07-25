@@ -136,16 +136,6 @@
                 "style/betterQuickSearch.css"
             ],
             "run_at": "document_end"
-        },
-
-        {
-            "js" : [
-                "scripts/cprPartsLink.js"
-            ],
-            "matches" : [
-                "https://cpr.repairq.io/ticket/*"
-            ],
-            "run_at": "document_end"
         }
 
     ],
